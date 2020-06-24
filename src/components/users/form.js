@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom';
 import './style.css'; 
 
 class UserForm extends Component {
-
     state = {
         data : {
             ID : '',
@@ -62,14 +61,14 @@ class UserForm extends Component {
                         <div className="form-group codigo">
                             <label>Código</label>
                             <input type="text" name="CODIGO" value={this.state.data.CODIGO} 
-                                    onChange={this.dataChange.bind(this)} className="form-control" />
+                            onChange={this.dataChange.bind(this)} className="form-control" />
                         
                         </div>
 
                         <div className="form-group CNPJ">
                             <label>CNPJ</label>
-                            <input type="text" id="CNPJ" name="CNPJ" value={this.state.data.CNPJ}
-                                onkeydown="Mask.apply(this, 'cpfCnpj')" 
+                            <input type="text" id="CNPJ" name="CNPJ" value={ this.state.data.CNPJ }
+                            
                                 onChange={this.dataChange.bind(this)} className="form-control" />
                         </div>
                         <div className="form-group Vencimento">
@@ -80,18 +79,16 @@ class UserForm extends Component {
                                 className="form-control" />
                         </div>
                         
+                       
+
                     </div>   
                     
-                    
-
                     <div className="form-group nome">
                         <label>Nome</label>
                         <input type="text" name="NOME" value={this.state.data.NOME} 
                              onChange={this.dataChange.bind(this)} className="form-control" />
                     </div>
-
-                       
-                                       
+                                    
                     <div className="Submit">
                         <Link style={{ textDecoration: 'none'}} className='button back' to={`/users`}>Voltar</Link>
                         <button type="submit" className="button sub">Salvar</button>

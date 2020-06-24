@@ -24,6 +24,7 @@ class UserForm extends Component {
     
     async componentDidMount() {
         const { id } = this.props.match.params;
+        console.log(id)
         if (typeof id !== "undefined") {
             await api.get(`/users/${id}`)
             .then(res => {
@@ -43,7 +44,7 @@ class UserForm extends Component {
                 this.props.history.push('/users');
             })
         } else {
-            api.put(`/users/${this.state.data.ID}`, this.state.data)
+            api.put(`/users/${this.state.data.CODIGO}`, this.state.data)
             .then(res => {
                 this.props.history.push('/users');
             })    
@@ -56,13 +57,26 @@ class UserForm extends Component {
                 <h1>Editar Usuário</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
-                        <label>ID</label>
-                        <input type="text" name="ID" value={this.state.data.ID} onChange={this.dataChange.bind(this)} className="form-control" />
+                        <label>Código</label>
+                        <input type="text" name="CODIGO" value={this.state.data.CODIGO} 
+                                onChange={this.dataChange.bind(this)} className="form-control" />
                     </div>
                     <div className="form-group">
-                        <label>UserName</label>
-                        <input type="text" name="USERNAME" value={this.state.data.USERNAME} onChange={this.dataChange.bind(this)} className="form-control" />
+                        <label>Nome</label>
+                        <input type="text" name="NOME" value={this.state.data.NOME} 
+                            onChange={this.dataChange.bind(this)} className="form-control" />
                     </div>
+                    <div className="form-group">
+                        <label>CNPJ</label>
+                        <input type="text" name="CNPJ" value={this.state.data.CNPJ} 
+                            onChange={this.dataChange.bind(this)} className="form-control" />
+                    </div>
+                    <div className="form-group">
+                        <label>Vencimento</label>
+                        <input type="text" name="VENCIMENTO" value={this.state.data.VENCIMENTO} 
+                            onChange={this.dataChange.bind(this)} className="form-control" />
+                    </div>
+                    
                     <button type="submit" className="btn btn-primary">Submit</button>
                     <Link className='btn btn-primary' to={`/users`}>Back</Link>
                 </form>

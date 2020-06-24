@@ -33,9 +33,9 @@ export default class UserTable extends Component {
     render() {
         return(
             <div className='col-sm-12'>
-                <br></br>
+                {/* <br></br>
                 <h3>Lista de Usuários ( {this.state._users.length} )</h3>
-                <br></br>
+                <br></br> */}
                 <div className="row">
                     <div className="col-sm-12">
                         <Link to={'/users/new'} className="btn btn-success">Novo</Link>
@@ -58,8 +58,9 @@ export default class UserTable extends Component {
                                 <td>{user.NOME}</td>
                                 <td>{user.CNPJ}</td>
                                 <td>
-                                    <Link to={`/users/${user.CNPJ}`}> <i className="fa fa-pencil"></i> </Link> 
-                                    <Link to={'/users'}  onClick={() => this.onDelete(user.ID)}> <i className="fa fa-trash-o"></i> </Link>
+                                    <Link to={`/users/${user.CODIGO}`}> <i className="fa fa-pencil"></i> </Link> 
+                                    {/* <Link to={'/users'}  onClick={() => this.onDelete(user.ID)}> <i className="fa fa-trash-o"></i> </Link>
+                                 */}
                                 </td>
                             </tr>    
                         ))}

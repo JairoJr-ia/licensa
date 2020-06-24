@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
 import { Link, withRouter } from 'react-router-dom';
+import './style.css'; 
 
 class UserForm extends Component {
 
@@ -56,30 +57,49 @@ class UserForm extends Component {
             <div className="col-sm-12">
                 <h1>Editar Usuário</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <label>Código</label>
-                        <input type="text" name="CODIGO" value={this.state.data.CODIGO} 
+                    <div className="Form">
+
+                        <div className="form-group codigo">
+                            <label>Código</label>
+                            <input type="text" name="CODIGO" value={this.state.data.CODIGO} 
+                                    onChange={this.dataChange.bind(this)} className="form-control" />
+                        
+                        </div>
+
+                        <div className="form-group CNPJ">
+                            <label>CNPJ</label>
+                            <input type="text" id="CNPJ" name="CNPJ" value={this.state.data.CNPJ}
+                                onkeydown="Mask.apply(this, 'cpfCnpj')" 
                                 onChange={this.dataChange.bind(this)} className="form-control" />
-                    </div>
-                    <div className="form-group">
+                        </div>
+                        <div className="form-group Vencimento">
+                            <label>Vencimento</label>
+                            <input type="date" name="VENCIMENTO" value={this.state.data.VENCIMENTO} 
+                                onChange={this.dataChange.bind(this)}
+                        
+                                className="form-control" />
+                        </div>
+                        
+                    </div>   
+                    
+                    
+
+                    <div className="form-group nome">
                         <label>Nome</label>
                         <input type="text" name="NOME" value={this.state.data.NOME} 
-                            onChange={this.dataChange.bind(this)} className="form-control" />
+                             onChange={this.dataChange.bind(this)} className="form-control" />
                     </div>
-                    <div className="form-group">
-                        <label>CNPJ</label>
-                        <input type="text" name="CNPJ" value={this.state.data.CNPJ} 
-                            onChange={this.dataChange.bind(this)} className="form-control" />
-                    </div>
-                    <div className="form-group">
-                        <label>Vencimento</label>
-                        <input type="text" name="VENCIMENTO" value={this.state.data.VENCIMENTO} 
-                            onChange={this.dataChange.bind(this)} className="form-control" />
-                    </div>
+
+                       
+                                       
+                    <div className="Submit">
+                        <Link style={{ textDecoration: 'none'}} className='button back' to={`/users`}>Voltar</Link>
+                        <button type="submit" className="button sub">Salvar</button>
+                        
+                    </div>                                    
                     
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                    <Link className='btn btn-primary' to={`/users`}>Back</Link>
                 </form>
+
             </div>
         )
     }
